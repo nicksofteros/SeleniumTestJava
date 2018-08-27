@@ -72,7 +72,7 @@ public class Core
             }
         }
 
-        Assert.assertTrue(analyticsCount>0);
+        Assert.assertTrue(analyticsCount>0, "Google analytics requests count should be > 0");
 
         PROXY.stop();
         DRIVER.quit();
@@ -92,6 +92,7 @@ public class Core
         }
         catch (TimeoutException ex)
         {
+            Assert.fail("FAIL - ElEMENT TIMEOUT: Can't find " + by + "element after " + Settings.ELEMENT_TIMEOUT + " seconds");
             return null;
         }
     }
